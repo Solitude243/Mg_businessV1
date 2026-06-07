@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panier - MG Business">
+    <title>Panier - MG Business</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .panier-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .panier-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+        }
+
+        .panier-items {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .panier-vide {
+            text-align: center;
+            padding: 3rem;
+            color: var(--light-text);
+        }
+
+        .panier-vide p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .panier-vide a {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .panier-vide a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .panier-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .item-details h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .item-details p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qty-input {
+            width: 60px;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .remove-btn {
+            padding: 0.5rem 1rem;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .remove-btn:hover {
+            background-color: #ff5252;
+        }
+
+        .panier-resume {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .resume-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .resume-item:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            padding-top: 1rem;
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1.5rem;
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .continue-shopping {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--secondary-color);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .continue-shopping:hover {
+            background-color: var(--light-bg);
+        }
+
+        @media (max-width: 768px) {
+            .panier-content {
+                grid-template-columns: 1fr;
+            }
+
+            .panier-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1rem;
+            }
+
+            .item-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .item-controls {
+                grid-column: 1 / -1;
+                justify-content: space-between;
+            }
+
+            .panier-resume {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>MG Business</h1>
+                <p class="tagline">Excellence & Élégance</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+                <li><a href="entreprise.html">Entreprise</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="temoignages.html">Témoignages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="currency-selector" class="currency-select">
+                    <option value="FC">FC</option>
+                    <option value="USD">USD</option>
+                </select>
+                <a href="panier.html" class="cart-icon">
+                    <span class="cart-count">0</span>
+                    🛒
+                </a>
+                <button class="menu-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu Principal -->
+    <div class="panier-container">
+        <h1>Mon Panier</h1>
+        
+        <div class="panier-content">
+            <!-- Liste des articles -->
+            <div class="panier-items" id="panier-items">
+                <!-- Les articles seront chargés par JavaScript -->
+            </div>
+
+            <!-- Résumé du panier -->
+            <div class="panier-resume">
+                <h2>Résumé</h2>
+                <div class="resume-item">
+                    <span>Sous-total:</span>
+                    <span id="subtotal">0 FC</span>
+                </div>
+                <div class="resume-item">
+                    <span>Livraison:</span>
+                    <span id="shipping">Gratuite</span>
+                </div>
+                <div class="resume-item">
+                    <span>Taxes:</span>
+                    <span id="taxes">Calculées</span>
+                </div>
+                <div class="resume-total">
+                    <span>Total:</span>
+                    <span id="total">0 FC</span>
+                </div>
+                <button class="checkout-btn" onclick="proceedToCheckout()">Passer la Commande</button>
+                <button class="continue-shopping" onclick="window.location.href='boutique.html'">Continuer vos Achats</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À Propos</h4>
+                <ul>
+                    <li><a href="apropos.html">Qui Sommes-Nous</a></li>
+                    <li><a href="entreprise.html">Notre Entreprise</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Boutique</h4>
+                <ul>
+                    <li><a href="boutique.html">Tous les Produits</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Assistance</h4>
+                <ul>
+                    <li><a href="contact.html">Nous Contacter</a></li>
+                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="#">Politique de Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Réseaux Sociaux</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MG Business. Tous droits réservés. Créé par Géraldine Moswayi</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        function renderCart() {
+            const container = document.getElementById('panier-items');
+            
+            if (cart.items.length === 0) {
+                container.innerHTML = `
+                    <div class="panier-vide">
+                        <p>Votre panier est vide</p>
+                        <a href="boutique.html">Continuer vos achats</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.items.map(item => `
+                <div class="panier-item">
+                    <img src="../${item.image}" alt="${item.name}" class="item-image">
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p>${item.category}</p>
+                        <p class="item-price" data-price="${item.price}">
+                            ${currencyManager.formatPrice(currencyManager.convertPrice(item.price))}
+                        </p>
+                    </div>
+                    <div class="item-controls">
+                        <input type="number" min="1" value="${item.quantity}" class="qty-input" 
+                               onchange="updateItemQuantity(${item.id}, this.value)">
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})">Supprimer</button>
+                    </div>
+                </div>
+            `).join('');
+
+            updateCartTotals();
+        }
+
+        function updateItemQuantity(productId, quantity) {
+            cart.updateQuantity(productId, parseInt(quantity));
+            renderCart();
+        }
+
+        function removeFromCart(productId) {
+            cart.removeItem(productId);
+            renderCart();
+        }
+
+        function updateCartTotals() {
+            const subtotal = cart.getTotal();
+            const convertedSubtotal = currencyManager.convertPrice(subtotal);
+            const taxes = Math.round(convertedSubtotal * 0.1);
+            const total = convertedSubtotal + taxes;
+
+            document.getElementById('subtotal').textContent = 
+                currencyManager.formatPrice(convertedSubtotal);
+            document.getElementById('taxes').textContent = 
+                currencyManager.formatPrice(taxes);
+            document.getElementById('total').textContent = 
+                currencyManager.formatPrice(total);
+        }
+
+        function proceedToCheckout() {
+            if (cart.items.length === 0) {
+                cart.showNotification('Votre panier est vide!');
+                return;
+            }
+            
+            const orderData = {
+                items: cart.items,
+                total: cart.getTotal(),
+                currency: currencyManager.currency,
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem('pending_order', JSON.stringify(orderData));
+            cart.showNotification('Commande enregistrée! Merci pour votre achat.');
+            
+            setTimeout(() => {
+                cart.clear();
+                renderCart();
+            }, 2000);
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            cart.updateCartCount();
+            currencyManager.updateAllPrices();
+        });
+    </script>
+</body>
+</html>

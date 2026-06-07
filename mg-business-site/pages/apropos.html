@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="À Propos de MG Business - Découvrez notre histoire, notre vision et nos valeurs.">
+    <title>À Propos - MG Business</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 1rem;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--secondary-color);
+            min-width: 80px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--light-text);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>MG Business</h1>
+                <p class="tagline">Excellence & Élégance</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+                <li><a href="entreprise.html">Entreprise</a></li>
+                <li><a href="apropos.html" class="active">À Propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="temoignages.html">Témoignages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="currency-selector" class="currency-select">
+                    <option value="FC">FC</option>
+                    <option value="USD">USD</option>
+                </select>
+                <a href="panier.html" class="cart-icon">
+                    <span class="cart-count">0</span>
+                    🛒
+                </a>
+                <button class="menu-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="about-hero">
+        <h1>À Propos de MG Business</h1>
+        <p>Découvrez l'histoire, la vision et les valeurs qui définissent notre entreprise</p>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="about-content">
+        <!-- Histoire -->
+        <section class="about-section">
+            <h2>Notre Histoire</h2>
+            <p>MG Business a été fondée en 2011 par Géraldine Moswayi, une femme d'affaires visionnaire passionnée par le luxe et l'excellence. Ce qui a commencé comme une petite boutique de parfums premium s'est transformé en une entreprise internationale reconnue pour la qualité et l'authenticité de ses produits.</p>
+            
+            <p>Géraldine Moswayi, forte de son expérience dans le secteur du luxe et de sa passion pour les produits haut de gamme, a décidé de créer une plateforme où les clients pourraient accéder à une collection exclusive de parfums, bijoux, montres, vêtements et accessoires de prestige.</p>
+            
+            <p>Au fil des années, MG Business s'est établie comme une référence incontournable dans le commerce de luxe en ligne, attirant des clients du monde entier qui apprécient notre engagement envers la qualité, l'authenticité et le service client exceptionnel.</p>
+            
+            <p>Aujourd'hui, avec plus de 15 ans d'expérience, MG Business continue de croître et d'innover, tout en restant fidèle aux principes fondamentaux qui ont guidé Géraldine Moswayi depuis le début : l'excellence, l'intégrité et la satisfaction du client.</p>
+        </section>
+
+        <!-- Vision et Mission -->
+        <section class="about-section">
+            <h2>Notre Vision et Mission</h2>
+            <p><strong>Vision :</strong> Devenir la plateforme de luxe de référence en Afrique et dans le monde, reconnue pour son engagement envers l'excellence, l'innovation et la satisfaction client.</p>
+            
+            <p><strong>Mission :</strong> Offrir une expérience d'achat exceptionnelle en proposant une collection curatée de produits premium authentiques, avec un service client irréprochable et une livraison fiable.</p>
+            
+            <p>Nous croyons que chaque client mérite d'accéder aux meilleurs produits du monde, indépendamment de sa localisation géographique. Notre mission est de démocratiser l'accès au luxe tout en maintenant les plus hauts standards de qualité et d'authenticité.</p>
+        </section>
+
+        <!-- Valeurs -->
+        <section class="about-section">
+            <h2>Nos Valeurs</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Excellence</h3>
+                    <p>Nous nous engageons à offrir les meilleurs produits et services possibles, sans compromis.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Authenticité</h3>
+                    <p>Tous nos produits sont authentiques et proviennent directement des sources fiables.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Intégrité</h3>
+                    <p>Nous opérons avec transparence et honnêteté dans toutes nos transactions.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Innovation</h3>
+                    <p>Nous innovons continuellement pour améliorer l'expérience de nos clients.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Responsabilité</h3>
+                    <p>Nous prenons nos responsabilités sociales et environnementales au sérieux.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Passion</h3>
+                    <p>Nous sommes passionnés par ce que nous faisons et cela se reflète dans notre travail.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Évolution -->
+        <section class="about-section">
+            <h2>Notre Évolution</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2011</div>
+                    <div class="timeline-content">
+                        <h4>Fondation de MG Business</h4>
+                        <p>Géraldine Moswayi ouvre la première boutique de parfums premium à Kinshasa.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                        <h4>Expansion Régionale</h4>
+                        <p>Ouverture de succursales en Afrique de l'Ouest et du Centre.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <h4>Lancement de la Plateforme E-commerce</h4>
+                        <p>MG Business lance son site e-commerce pour atteindre une clientèle mondiale.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h4>Diversification des Produits</h4>
+                        <p>Ajout de bijoux, montres, vêtements et accessoires à notre catalogue.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h4>Certifications Internationales</h4>
+                        <p>Obtention de certifications ISO et reconnaissance comme entreprise de luxe certifiée.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h4>Nouvelle Plateforme Numérique</h4>
+                        <p>Lancement d'une plateforme e-commerce entièrement redessinée avec expérience utilisateur améliorée.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ambitions Futures -->
+        <section class="about-section">
+            <h2>Nos Ambitions Futures</h2>
+            <p>MG Business aspire à devenir le leader incontesté du commerce de luxe en ligne en Afrique. Nous envisageons d'élargir notre catalogue avec de nouvelles catégories de produits premium, d'améliorer continuellement notre technologie et nos services logistiques, et d'étendre notre présence à de nouveaux marchés internationaux.</p>
+            
+            <p>Nous nous engageons également à investir dans le développement durable et la responsabilité sociale des entreprises, en veillant à ce que notre croissance bénéficie à nos communautés locales et à l'environnement.</p>
+            
+            <p>Sous la direction visionnaire de Géraldine Moswayi, MG Business continuera à innover et à repousser les limites de ce qui est possible dans le commerce de luxe, tout en restant fidèle à nos valeurs fondamentales d'excellence et d'intégrité.</p>
+        </section>
+
+        <!-- Impact sur les Clients -->
+        <section class="about-section">
+            <h2>Notre Impact sur les Clients</h2>
+            <p>Depuis sa fondation, MG Business a servi plus de 50 000 clients satisfaits à travers le monde. Nos clients apprécient non seulement la qualité de nos produits, mais aussi l'excellence de notre service client, notre engagement envers l'authenticité et notre dévouement à leur satisfaction.</p>
+            
+            <p>Chaque achat chez MG Business est une promesse de qualité, d'authenticité et de satisfaction. Nous ne vendons pas seulement des produits ; nous créons des expériences mémorables et établissons des relations durables avec nos clients.</p>
+            
+            <p>Les témoignages de nos clients parlent d'eux-mêmes. Beaucoup reviennent régulièrement pour leurs achats de luxe, et beaucoup nous recommandent à leurs amis et à leur famille. C'est cette confiance et cette loyauté qui nous motivent à continuer à exceller.</p>
+        </section>
+
+        <!-- Développement Futur -->
+        <section class="about-section">
+            <h2>Notre Développement Futur</h2>
+            <p>Nous prévoyons d'investir massivement dans la technologie, notamment en intelligence artificielle et en apprentissage automatique, pour offrir des recommandations de produits personnalisées et une expérience d'achat plus intuitive.</p>
+            
+            <p>Nous envisageons également d'ouvrir des espaces de vente au détail physiques dans les grandes villes, combinant l'expérience en ligne avec l'expérience en magasin pour offrir à nos clients le meilleur des deux mondes.</p>
+            
+            <p>Enfin, nous nous engageons à former et à développer notre équipe, en créant des opportunités de carrière pour les talents exceptionnels qui partagent notre vision et nos valeurs.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À Propos</h4>
+                <ul>
+                    <li><a href="apropos.html">Qui Sommes-Nous</a></li>
+                    <li><a href="entreprise.html">Notre Entreprise</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Boutique</h4>
+                <ul>
+                    <li><a href="boutique.html">Tous les Produits</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Assistance</h4>
+                <ul>
+                    <li><a href="contact.html">Nous Contacter</a></li>
+                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="#">Politique de Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Réseaux Sociaux</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MG Business. Tous droits réservés. Créé par Géraldine Moswayi</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

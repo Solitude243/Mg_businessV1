@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boutique MG Business - Découvrez notre collection complète de parfums, bijoux, montres, vêtements et accessoires premium.">
+    <title>Boutique - MG Business</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .boutique-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filters {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+        }
+
+        .filter-option input[type="checkbox"] {
+            margin-right: 0.8rem;
+            cursor: pointer;
+            accent-color: var(--secondary-color);
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .products-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .sort-select {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--white);
+            cursor: pointer;
+        }
+
+        .products-count {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .boutique-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .filter-group {
+                margin-bottom: 0;
+            }
+
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>MG Business</h1>
+                <p class="tagline">Excellence & Élégance</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="boutique.html" class="active">Boutique</a></li>
+                <li><a href="entreprise.html">Entreprise</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="temoignages.html">Témoignages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="currency-selector" class="currency-select">
+                    <option value="FC">FC</option>
+                    <option value="USD">USD</option>
+                </select>
+                <a href="panier.html" class="cart-icon">
+                    <span class="cart-count">0</span>
+                    🛒
+                </a>
+                <button class="menu-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu Principal -->
+    <div class="boutique-container">
+        <!-- Filtres -->
+        <aside class="filters">
+            <input type="text" class="search-box" id="search-input" placeholder="Rechercher...">
+            
+            <div class="filter-group">
+                <h3>Catégories</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="cat-all" value="all" checked>
+                    <label for="cat-all">Tous les produits</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="cat-parfums" value="parfums">
+                    <label for="cat-parfums">Parfums</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="cat-bijoux" value="bijoux">
+                    <label for="cat-bijoux">Bijoux</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="cat-montres" value="montres">
+                    <label for="cat-montres">Montres</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="cat-vetements" value="vetements">
+                    <label for="cat-vetements">Vêtements</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="cat-accessoires" value="accessoires">
+                    <label for="cat-accessoires">Accessoires</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Prix</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="price-low" value="low">
+                    <label for="price-low">Moins de 200 USD</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="price-mid" value="mid">
+                    <label for="price-mid">200 - 500 USD</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="price-high" value="high">
+                    <label for="price-high">Plus de 500 USD</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Produits -->
+        <section class="products-section">
+            <div class="products-header">
+                <div class="products-count">
+                    <span id="product-count">Affichage de 8 produits</span>
+                </div>
+                <select class="sort-select" id="sort-select">
+                    <option value="default">Trier par</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                    <option value="name">Nom A-Z</option>
+                    <option value="rating">Meilleures notes</option>
+                </select>
+            </div>
+            <div class="products-grid" id="boutique-products">
+                <!-- Les produits seront chargés par JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À Propos</h4>
+                <ul>
+                    <li><a href="apropos.html">Qui Sommes-Nous</a></li>
+                    <li><a href="entreprise.html">Notre Entreprise</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Boutique</h4>
+                <ul>
+                    <li><a href="boutique.html">Tous les Produits</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Assistance</h4>
+                <ul>
+                    <li><a href="contact.html">Nous Contacter</a></li>
+                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="#">Politique de Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Réseaux Sociaux</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MG Business. Tous droits réservés. Créé par Géraldine Moswayi</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Gestion des filtres et tri
+        let filteredProducts = [...PRODUCTS];
+
+        function updateProducts() {
+            renderProducts(filteredProducts, 'boutique-products');
+            document.getElementById('product-count').textContent = 
+                `Affichage de ${filteredProducts.length} produit${filteredProducts.length > 1 ? 's' : ''}`;
+        }
+
+        function applyFilters() {
+            let results = [...PRODUCTS];
+
+            // Filtre par catégorie
+            const categoryCheckboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+            const selectedCategories = Array.from(categoryCheckboxes)
+                .filter(cb => cb.checked && cb.id.startsWith('cat-'))
+                .map(cb => cb.value);
+
+            if (selectedCategories.length > 0 && !selectedCategories.includes('all')) {
+                results = results.filter(p => selectedCategories.includes(p.category));
+            }
+
+            // Filtre par prix
+            const priceCheckboxes = Array.from(document.querySelectorAll('.filter-option input[type="checkbox"]'))
+                .filter(cb => cb.checked && cb.id.startsWith('price-'));
+            
+            if (priceCheckboxes.length > 0) {
+                results = results.filter(p => {
+                    return priceCheckboxes.some(cb => {
+                        if (cb.value === 'low') return p.price < 200;
+                        if (cb.value === 'mid') return p.price >= 200 && p.price <= 500;
+                        if (cb.value === 'high') return p.price > 500;
+                        return false;
+                    });
+                });
+            }
+
+            // Recherche
+            const searchTerm = document.getElementById('search-input').value;
+            if (searchTerm) {
+                results = searchProducts(searchTerm);
+            }
+
+            filteredProducts = results;
+            updateProducts();
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', applyFilters);
+        });
+
+        document.getElementById('search-input').addEventListener('input', applyFilters);
+
+        // Tri
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+            const sortValue = e.target.value;
+            
+            switch(sortValue) {
+                case 'price-asc':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'rating':
+                    filteredProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+            }
+            
+            updateProducts();
+        });
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProducts();
+            cart.updateCartCount();
+            currencyManager.updateAllPrices();
+        });
+    </script>
+</body>
+</html>
